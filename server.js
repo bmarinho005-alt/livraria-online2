@@ -2,10 +2,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); 
+const path = require('path'); // Importa o módulo 'path' do Node.js
 
 const app = express();
-// Usa a porta fornecida pelo Render (process.env.PORT) ou 3000 se rodando localmente
-const port = process.env.PORT || 3000; 
+const port = 3000; // Onde o servidor roda localmente (na sua máquina)
 
 // --- DEFINIÇÃO DO MODELO (SCHEMA) DO LIVRO ---
 const livroSchema = new mongoose.Schema({
@@ -18,8 +18,8 @@ const Livro = mongoose.model('Livro', livroSchema);
 // --------------------------------------------------------------------------------------------------
 
 // --- CONFIGURAÇÃO DO BANCO DE DADOS ---
-// Sua string de conexão com a senha correta (teste12345678)
-const mongoUrl = 'mongodb+srv://bmarinho005_db_user:teste12345678@cluster0.jv2degl.mongodb.net/?appName=Cluster0';
+// String de conexão com o nome do DB especificado (/Cluster0)
+const mongoUrl = 'mongodb+srv://bmarinho005_db_user:teste12345678@cluster0.jv2degl.mongodb.net/Cluster0?appName=Cluster0';
 
 mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
@@ -32,13 +32,15 @@ mongoose.connect(mongoUrl, {
 // --- CONFIGURAÇÕES DO SERVIDOR (Middleware) ---
 app.use(cors()); 
 app.use(express.json()); 
-// Quando hospedado no Render, não usamos express.static aqui, pois o front-end está no GitHub Pages.
-//app.use(express.static('C:/projeto livros')); 
+
+// Configuração de arquivos estáticos para funcionar no Render e localmente
+// Isso serve index.html, catalogo.html, styles.css, img/, etc., a partir da pasta raiz do projeto.
+app.use(express.static(path.join(__dirname, '/'))); 
 
 // --- ROTAS (Endpoints da API) ---
 // Rota inicial de teste
 app.get('/', (req, res) => {
-  res.send('O back-end está rodando no Render e conectado ao MongoDB! Use /api/livros para a integração.');
+  res.send('O back-end está rodando e conectado ao MongoDB! Use /api/livros para a integração.');
 });
 
 // Rota para obter livros (PUXA OS DADOS DO MONGODB REAL)
@@ -55,8 +57,8 @@ app.get('/api/livros', async (req, res) => {
 // Exemplo de rota para ADICIONAR dados (salva no DB)
 app.post('/api/items', async (req, res) => {
     try {
-        const novoLivro = new Livro(req.body); 
-        await novoLivro.save(); 
+        const novoLivro = new Livro(req.body); // Cria um novo documento com os dados recebidos
+        await novoLivro.save(); // Salva no MongoDB
         res.status(201).send('Livro salvo no MongoDB com sucesso!');
     } catch (error) {
         res.status(400).send('Erro ao salvar o livro.');
@@ -66,5 +68,5 @@ app.post('/api/items', async (req, res) => {
 
 // Inicia o servidor Node.js
 app.listen(port, () => {
-  console.log(`Servidor escutando na porta ${port}`);
+  console.log(`Servidor escutando em http://localhost:${port}`);
 });
