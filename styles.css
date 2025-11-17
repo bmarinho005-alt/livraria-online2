@@ -1,0 +1,313 @@
+:root {
+    font-size: 10px;
+    --main-color: #ff69b4; /* Rosa como cor principal */
+    --black: #000000; /* Preto puro para fundos */
+    --bg: #131313; /* Preto escuro para variações */
+    --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.caixa-video {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.caixa-video video {
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0;
+    object-fit: cover;
+}
+
+.mascara {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+section {
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: var(--black); /* Preto */
+    border-bottom: var(--border);
+    width: 100vw;
+}
+
+.header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.header section a img {
+    height: 6rem;
+}
+
+.header section nav a {
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    color: #fff; /* Branco para contraste */
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.header section nav a:hover,
+.header section nav a:focus {
+    color: var(--main-color); /* Rosa no hover */
+    border-bottom: 0.1rem solid var(--main-color);
+    outline: none;
+}
+
+.caixa-principal {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.caixa-principal div {
+    max-width: 60rem;
+}
+
+.caixa-principal div h3 {
+    color: #fff; /* Branco */
+    font-size: 6rem;
+    text-transform: uppercase;
+}
+
+.caixa-principal div p {
+    font-size: 2rem;
+    color: #fff; /* Branco */
+    font-weight: lighter;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+.botao-link {
+    background-color: var(--main-color); /* Rosa */
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    color: var(--black); /* Preto no texto do botão */
+    padding: 1rem 3rem;
+    border: none;
+    transition: letter-spacing 0.3s linear;
+}
+
+.botao-link:hover,
+.botao-link:focus {
+    letter-spacing: 0.1rem;
+    outline: 2px solid var(--main-color);
+}
+
+.titulo {
+    text-align: center;
+    color: #fff; /* Branco */
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+.titulo span {
+    color: var(--main-color); /* Rosa no destaque */
+    margin: 20px 1rem;
+}
+
+/* Seção de Livros */
+.livros-section {
+    background-color: var(--black); /* Preto */
+    padding: 5rem 2rem;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filtro-btn {
+    background-color: transparent;
+    color: #fff; /* Branco */
+    border: 0.1rem solid var(--main-color); /* Borda rosa */
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filtro-btn.active,
+.filtro-btn:hover {
+    background-color: var(--main-color); /* Fundo rosa */
+    color: var(--black); /* Texto preto */
+}
+
+.livros-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.livro {
+    background-color: rgba(255, 255, 255, 0.1); /* Leve transparência branca */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.livro:hover {
+    transform: scale(1.05);
+}
+
+.livro img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.livro h4 {
+    color: #fff; /* Branco */
+    padding: 1rem;
+    font-size: 1.8rem;
+}
+
+.livro p {
+    color: #ccc; /* Cinza claro para descrição */
+    padding: 0 1rem 1rem;
+    font-size: 1.4rem;
+}
+
+/* Seção Sobre */
+.caixa-sobre {
+    background-color: var(--bg); /* Preto escuro */
+}
+
+.sobre-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.sobre-imagem {
+    flex: 1 1 45rem;
+}
+
+.sobre-imagem img {
+    width: 100%;
+}
+
+.sobre-texto {
+    flex: 1 1 45rem;
+    padding: 2rem;
+}
+
+.sobre-texto h3 {
+    font-size: 3rem;
+    color: #fff; /* Branco */
+}
+
+.sobre-texto p {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: #fff; /* Branco */
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+/* Modal */
+.modal {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black); /* Preto */
+    border: var(--border);
+    padding: 2rem;
+    gap: 20px;
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+    max-width: 500px;
+    width: 90%;
+}
+
+.mascara-modal {
+    visibility: hidden;
+    transition: visibility 0.3s linear;
+    z-index: 999;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(109deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%); /* Preto com transparência */
+}
+
+footer {
+    background-color: var(--black); /* Preto */
+    text-align: center;
+    padding: 2rem;
+    color: #fff; /* Branco */
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;  
+    margin-bottom: 3rem;
+}
+.tab-button {
+    background-color: var(--main-color);  /* Fundo rosa por padrão */
+    color: var(--black);  /* Texto preto para contraste */
+    border: 0.1rem solid var(--main-color);  /* Borda rosa */
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.6rem;
+}
+.tab-button.active,
+.tab-button:hover {
+    background-color: transparent;  /* Fundo transparente no hover */
+    color: #fff;  /* Texto branco */
+    border: 0.1rem solid var(--main-color);  /* Borda rosa mantida */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .caixa-principal div h3 {
+        font-size: 4rem;
+    }
+    .titulo {
+        font-size: 3rem;
+    }
+    .header section {
+        flex-direction: column;
+    }
+    .filtros {
+        flex-wrap: wrap;
+    }
+    .livros-container {
+        grid-template-columns: 1fr;
+    }
+}
+

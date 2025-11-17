@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Livros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="caixa-video">
+        <video autoplay muted loop>
+            <source src="videos/background.mp4" type="video/mp4"> <!--  vídeo de fundo -->
+        </video>
+    </div>
+    <div class="mascara"></div>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <section>
+            <a href="#"><img src="img/icon.png" alt="Logo do Site"></a> <!--logo -->
+            <nav>
+                <a href="#home">Início</a>
+                <a href="#livros">Livros</a>
+                <a href="#sobre" >Sobre</a>
+                <a href="catalogo.html" target="_blank">Catálogo</a>
+            </nav>
+        </section>
+    </header>
+    <!-- Seção Principal -->
+    <section id="home" class="caixa-principal">
+        <div>
+            <h3>Bem-vindo ao Recanto dos Livros</h3>
+            <p>Explore nossa coleção de livros infantis. De Contos a fantasias, encontre sua próxima leitura favorita.</p>
+            <a href="catalogo.html" target="_blank" class="botao-link">Ver Livros</a>
+        </div>
+    </section>
+    <!-- Seção de Livros -->
+    <section id="livros" class="livros-section">
+        <h2 class="titulo">Categorias de<span>Livros</span></h2>
+       <div class="tabs" role="tablist">
+    <button class="tab-button" role="tab" aria-selected="true" aria-controls="todos" onclick="openTab('todos')">Todos</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="ficcao" onclick="openTab('contos de fadas')">Contos de Fadas</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="nao-ficcao" onclick="openTab('fabulas')">Fábulas</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="biografia" onclick="openTab('fantasia')">Fantasia</button>
+    </section>
+<!-- Seção Sobre -->
+    <section id="sobre" class="caixa-sobre">
+        <div class="sobre-container">
+            <div class="sobre-imagem">
+                <img src="img/ambiente-interno.jpg" alt="Sobre nós"> <!-- Imagem de placeholder -->
+            </div>
+            <div class="sobre-texto">
+                <h3>Sobre Nós</h3>
+                <p>Somos apaixonados por livros e queremos compartilhar essa paixão com você. Nossa missão é promover a leitura e oferecer uma seleção cuidadosa de títulos para todos os gostos.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Modal Detalhes do Livro -->
+    <div class="mascara-modal" id="mascara-modal"></div>
+    <div class="modal" id="modal">
+        <h3 id="modal-titulo"></h3>
+        <img id="modal-imagem" src="" alt="">
+        <p id="modal-descricao"></p>
+        <button onclick="fecharModal()">Fechar</button>
+    </div>
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2023 Site de Livros. Todos os direitos reservados.</p>
+    </footer>
+    <script src="/scripts.js"></script>
+    
+</body>
+</html>

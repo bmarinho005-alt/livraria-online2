@@ -1,0 +1,93 @@
+/* Tab buttons (rosa, como antes) */
+.tab-buttons {
+    overflow: hidden;
+    border: 1px solid #ff69b4;
+    background-color: #ffe4e1;
+}
+.tablink {
+    background-color: #ffb6c1;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: #fff;
+    font-weight: bold;
+}
+.tablink:hover {
+    background-color: #ff1493;
+}
+.tablink.active {
+    background-color: #dc143c;
+    color: #fff;
+}
+/* Tab content */
+.tab-content {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #000;  /* Fundo preto para todas as abas */
+    color: #ffb6c1;  /* Texto rosa */
+}
+.tab-content.active {
+    display: block;
+}
+/* Específico para o catálogo (preto e rosa) */
+#catalogo {
+    background-color: #000;  /* Fundo preto */
+    color: #ffb6c1;  /* Texto rosa */
+}
+#catalogo h3 {
+    color: #ff1493;  /* Título rosa intenso */
+}
+#busca-catalogo {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ffb6c1;  /* Borda rosa */
+    background-color: #000;  /* Fundo preto */
+    color: #ffb6c1;  /* Texto rosa */
+}
+.livro-item {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ffb6c1;  /* Linha rosa */
+    color: #ffb6c1;  /* Texto rosa */
+}
+.livro-item:hover {
+    background-color: #333;  /* Fundo cinza escuro ao passar */
+    color: #ff1493;  /* Texto rosa intenso */
+}
+/* Livros container */
+.livros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* Modal (preto e rosa) */
+#mascara-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);  /* Fundo preto semi-transparente */
+}
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;  /* Fundo preto */
+    color: #ffb6c1;  /* Texto rosa */
+    padding: 20px;
+    border: 2px solid #ff1493;  /* Borda rosa */
+    width: 80%;
+    max-width: 500px;
+}

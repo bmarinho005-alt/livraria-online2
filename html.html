@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Livros</title>
+    <link rel="stylesheet" href="tab.css">
+</head>
+<body>
+    <div id="todos" class="tab-content active" role="tabpanel" aria-labelledby="todos">
+    <div class="livros-container">
+        <!-- Livros inseridos via JS -->
+    </div>
+</div>
+<div id="ficcao" class="tab-content" role="tabpanel" aria-labelledby="ficcao">
+    <div class="livros-container">
+        <!-- Livros inseridos via JS -->
+    </div>
+</div>
+<div id="nao-ficcao" class="tab-content" role="tabpanel" aria-labelledby="nao-ficcao">
+    <div class="livros-container">
+        <!-- Livros inseridos via JS -->
+    </div>
+</div>
+<div id="biografia" class="tab-content" role="tabpanel" aria-labelledby="biografia">
+    <div class="livros-container">
+        <!-- Livros inseridos via JS -->
+    </div>
+</div>
+<div id="catalogo" class="tab-content" role="tabpanel" aria-labelledby="catalogo">  <!-- Nova aba -->
+    <h3>Catálogo de Livros</h3>
+    <p>Explore todos os livros disponíveis.</p>
+    <!-- Barra de busca simples -->
+    <input type="text" id="busca-catalogo" placeholder="Buscar livro..." onkeyup="filtrarLivros()">
+    <div id="lista-catalogo">
+        <!-- Exemplos de livros (substitua por dados reais) -->
+        <div class="livro-item" onclick="abrirModal('Livro A', 'imagemA.jpg', 'Descrição do Livro A.')">Livro A</div>
+        <div class="livro-item" onclick="abrirModal('Livro B', 'imagemB.jpg', 'Descrição do Livro B.')">Livro B</div>
+        <div class="livro-item" onclick="abrirModal('Livro C', 'imagemC.jpg', 'Descrição do Livro C.')">Livro C</div>
+        <!-- Adicione mais aqui -->
+    </div>
+</div>
+<!-- Modal (igual ao anterior) -->
+<div id="mascara-modal" onclick="fecharModal()"></div>
+<div id="modal">
+    <span onclick="fecharModal()">×</span>
+    <h2 id="modal-titulo"></h2>
+    <img id="modal-imagem" src="" alt="Imagem do Livro">
+    <p id="modal-descricao"></p>
+</div>
+</body>
