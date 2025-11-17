@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: meu-pit-backend # Substitua por um nome único globalmente (ex: meu-site-livros-pit-bmarinho)
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    
